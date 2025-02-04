@@ -28,19 +28,40 @@ export default async function Home() {
       <Head>
         <title>Akbar Khairul Aziz - Software Engineer</title>
         <meta name="title" content="Akbar Khairul Aziz - Software Engineer" />
-        <meta name="description" content="A Software Engineer based in Lampung, Indonesia, with an eye for great design (UI) and even better user experience (UX)." />
+        <meta
+          name="description"
+          content="A Software Engineer based in Lampung, Indonesia, with an eye for great design (UI) and even better user experience (UX)."
+        />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://metatags.io/" />
-        <meta property="og:title" content="Akbar Khairul Aziz - Software Engineer" />
-        <meta property="og:description" content="A Software Engineer based in Lampung, Indonesia, with an eye for great design (UI) and even better user experience (UX)." />
-        <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+        <meta
+          property="og:title"
+          content="Akbar Khairul Aziz - Software Engineer"
+        />
+        <meta
+          property="og:description"
+          content="A Software Engineer based in Lampung, Indonesia, with an eye for great design (UI) and even better user experience (UX)."
+        />
+        <meta
+          property="og:image"
+          content="https://metatags.io/images/meta-tags.png"
+        />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://metatags.io/" />
-        <meta property="twitter:title" content="Akbar Khairul Aziz - Software Engineer" />
-        <meta property="twitter:description" content="A Software Engineer based in Lampung, Indonesia, with an eye for great design (UI) and even better user experience (UX)." />
-        <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+        <meta
+          property="twitter:title"
+          content="Akbar Khairul Aziz - Software Engineer"
+        />
+        <meta
+          property="twitter:description"
+          content="A Software Engineer based in Lampung, Indonesia, with an eye for great design (UI) and even better user experience (UX)."
+        />
+        <meta
+          property="twitter:image"
+          content="https://metatags.io/images/meta-tags.png"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Transition className="fixed md:top-8 top-6 md:left-8 left-6 z-30 hover:text-white/80 text-white/40">

@@ -15,9 +15,9 @@ interface AboutProps {
 const About = ({ about, timeline }: AboutProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const education = timeline
-    .filter((line) => line.forEducation && line.enabled === true)
-    .sort((a, b) => a.sequence - b.sequence);
+  // const education = timeline;
+  // .filter((line) => line.forEducation && line.enabled === true)
+  // .sort((a, b) => a.sequence - b.sequence);
 
   return (
     <section
@@ -35,7 +35,7 @@ const About = ({ about, timeline }: AboutProps) => {
         </Transition>
         <div className="pt-10">
           <div className="py-10 overflow-hidden grid w-full">
-            {education.map((edu, index) => (
+            {/* {education.map((edu, index) => (
               <Transition key={edu._id}>
                 <TimelineCard
                   index={index}
@@ -44,16 +44,16 @@ const About = ({ about, timeline }: AboutProps) => {
                   timeline={edu}
                 />
               </Transition>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
-      <div className="relative">
+      {/* <div className="relative">
         <div className="sticky top-6">
           <Transition>
             <Image
-              // src={about.avatar.url}
-              src={"/img.jpeg"}
+              src={about.avatar.url}
+              // src={"/img.jpeg"}
               width={400}
               height={400}
               alt={about.name}
@@ -61,7 +61,7 @@ const About = ({ about, timeline }: AboutProps) => {
             />
           </Transition>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
