@@ -16,8 +16,8 @@ import { Hero } from "@/components/Hero";
 import { ContactUs } from "@/components/ContactUs";
 
 export default async function Home() {
-  // const res = await fetch("https://api-porto.onrender.com/api/user");
-  const res = await fetch("http://localhost:3001/api/user");
+  const res = await fetch("https://api-porto.onrender.com/api/user");
+  // const res = await fetch("http://localhost:3001/api/user");
 
   const { user } = (await res.json()) as UserObject;
   if (!user) return null;
