@@ -40,6 +40,7 @@ export interface Skill {
   sequence: number;
   percentage: number;
   image: Avatar;
+  category: 'language' | 'framework' | 'tool';
   _id: string;
 }
 

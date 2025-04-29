@@ -6,18 +6,26 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { formatDate } from "@/utils";
 import { SlideIn, Transition } from "./ui";
+import { Skill } from "@/utils/interfaces";
 
 interface AboutProps {
   about: AboutType;
   timeline: Timeline[];
+  skills?: Skill[];
 }
 
-const About = ({ about, timeline }: AboutProps) => {
+const About = ({ about, timeline, skills = [] }: AboutProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // const education = timeline;
-  // .filter((line) => line.forEducation && line.enabled === true)
-  // .sort((a, b) => a.sequence - b.sequence);
+  const categorizedSkills = {
+    language: skills.filter(
+      (skill) => skill.enabled && skill.category === "language",
+    ),
+    framework: skills.filter(
+      (skill) => skill.enabled && skill.category === "framework",
+    ),
+    tool: skills.filter((skill) => skill.enabled && skill.category === "tool"),
+  };
 
   return (
     <section
@@ -33,6 +41,88 @@ const About = ({ about, timeline }: AboutProps) => {
             {about.description}
           </p>
         </Transition>
+
+        {/* Skills Section */}
+        <div className="mt-32">
+          <h4 className="text-2xl md:text-5xl font-bold mb-6">Skills</h4>
+
+          {/* Languages */}
+          <div className="mb-8">
+            <h5 className="text-xl font-semibold mb-4">
+              Programming Languages
+            </h5>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {categorizedSkills.language.map((skill) => (
+                <div
+                  key={skill._id}
+                  className="flex items-center gap-3 bg-primary/5 p-3 rounded-lg"
+                >
+                  {skill.image && (
+                    <Image
+                      src={skill.image.url}
+                      alt={skill.name}
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                    />
+                  )}
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Frameworks/Libraries */}
+          <div className="mb-8">
+            <h5 className="text-xl font-semibold mb-4">
+              Frameworks & Libraries
+            </h5>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {categorizedSkills.framework.map((skill) => (
+                <div
+                  key={skill._id}
+                  className="flex items-center gap-3 bg-primary/5 p-3 rounded-lg"
+                >
+                  {skill.image && (
+                    <Image
+                      src={skill.image.url}
+                      alt={skill.name}
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                    />
+                  )}
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tools */}
+          <div className="mb-8">
+            <h5 className="text-xl font-semibold mb-4">Tools & Technologies</h5>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {categorizedSkills.tool.map((skill) => (
+                <div
+                  key={skill._id}
+                  className="flex items-center gap-3 bg-primary/5 p-3 rounded-lg"
+                >
+                  {skill.image && (
+                    <Image
+                      src={skill.image.url}
+                      alt={skill.name}
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                    />
+                  )}
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="pt-10">
           <div className="py-10 overflow-hidden grid w-full">
             {/* {education.map((edu, index) => (
