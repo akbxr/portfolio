@@ -15,11 +15,19 @@ import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { ContactUs } from "@/components/ContactUs";
 
-export default async function Home() {
-  const res = await fetch("https://api-porto.onrender.com/api/user");
-  // const res = await fetch("http://localhost:3001/api/user");
+async function fetchUser() {
+  try {
+    const res = await fetch("https://api-porto.onrender.com/api/user");
+    if (!res.ok) throw new Error("Failed to fetch user data");
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
+}
 
-  const { user } = (await res.json()) as UserObject;
+export default async function Home() {
+  const { user } = (await fetchUser()) as UserObject;
   if (!user) return null;
   const { about, skills, social_handles, timeline, email } = user;
 
